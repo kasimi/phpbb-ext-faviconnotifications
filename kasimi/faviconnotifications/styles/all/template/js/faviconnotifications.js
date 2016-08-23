@@ -23,7 +23,8 @@ jQuery(function($) {
 	};
 
 	// Set initial notifications count
-	setUnreadNotificationsCount(kasimiFaviconNotifications.count);
+	var unreadCount = $('strong', '#notification_list_button').html();
+	setUnreadNotificationsCount(unreadCount);
 
 	// Update notifications count when marking notifications read
 	var phpbbMarkNotifications = phpbb.markNotifications;
