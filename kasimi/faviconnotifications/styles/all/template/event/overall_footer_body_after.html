@@ -1,0 +1,28 @@
+<!-- IF S_USER_LOGGED_IN and not S_IS_BOT and NOTIFICATIONS_COUNT > 0 -->
+<script type="text/javascript">
+// <![CDATA[
+	jQuery(function($) {
+		// Initialize favicon
+		var favicon = new Favico({
+			bgColor		: '#d00',
+			textColor	: '#fff',
+			fontFamily	: 'sans-serif',
+			fontStyle	: 'bold',
+			type		: 'circle',
+			position	: 'up',
+			animation	: 'popFade'
+		});
+
+		// Set initial notifications count
+		favicon.badge({NOTIFICATIONS_COUNT});
+
+		// Listen to notifications count updates
+		$(phpbb).on({
+			kasimi_faviconnotifications_update: function(event, notificationsCount) {
+				favicon.badge(notificationsCount);
+			}
+		});
+	});
+// ]]>
+</script>
+<!-- ENDIF -->
