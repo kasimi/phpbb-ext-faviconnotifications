@@ -23,7 +23,7 @@ jQuery(function($) {
 	};
 
 	// Set initial notifications count
-	var unreadCount = $('strong', '#notification_list_button').html();
+	var unreadCount = parseInt($('strong', '#notification_list_button').html());
 	setUnreadNotificationsCount(unreadCount);
 
 	// Update notifications count when marking notifications read
