@@ -7,27 +7,30 @@
  */
 
 jQuery(function($) {
+
+	'use strict';
+
 	// Initialize favicon
-	var favicon = new Favico({
+	let favicon = new Favico({
 		bgColor		: '#d00',
 		textColor	: '#fff',
 		fontFamily	: 'sans-serif',
 		fontStyle	: 'bold',
 		type		: 'circle',
 		position	: 'up',
-		animation	: 'popFade'
+		animation	: 'popFade',
 	});
 
-	var setUnreadNotificationsCount = function(count) {
+	let setUnreadNotificationsCount = function(count) {
 		favicon.badge(count);
 	};
 
 	// Set initial notifications count
-	var unreadCount = parseInt($('strong', '#notification_list_button').html());
+	let unreadCount = parseInt($('strong', '#notification_list_button').html());
 	setUnreadNotificationsCount(unreadCount);
 
 	// Update notifications count when marking notifications read
-	var phpbbMarkNotifications = phpbb.markNotifications;
+	let phpbbMarkNotifications = phpbb.markNotifications;
 	phpbb.markNotifications = function($popup, unreadCount) {
 		setUnreadNotificationsCount(unreadCount);
 		return phpbbMarkNotifications($popup, unreadCount);
